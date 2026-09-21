@@ -163,6 +163,30 @@ Ajustes rápidos en `assets/js/engine3d.js`:
 Si el visitante tiene activado «reducir movimiento» en su sistema, el motor se queda
 quieto en una pose bonita. Si el navegador no soporta 3D, aparece el emblema NAOS.
 
+### Solicitud de cita (sección final, `#cita`)
+
+Formulario en 4 pasos (servicio, vehículo, día y franja, datos) con un resumen tipo
+orden de trabajo que se rellena en vivo. **Funciona sin servidor:** al pulsar
+«Enviar solicitud por WhatsApp» se abre WhatsApp al **680 31 01 80** con la cita ya
+redactada; el cliente solo pulsa enviar. Los datos no se guardan en ningún sitio.
+
+- **Número de WhatsApp:** en `assets/js/main.js`, `var WA_NUMBER = '34680310180';`
+- **Días que se ofrecen:** los próximos 10 días laborables (lunes a viernes) con la
+  hora de Canarias; «hoy» solo aparece si aún no son las 12:00. No descuenta
+  festivos: por eso el texto dice que es una preferencia y que el taller confirma.
+- **Franjas horarias:** en `index.html`, bloque `.slots`.
+- **Textos y avisos de error:** claves `book.*` en `assets/js/i18n.js`.
+- El botón «Pedir cita» de la cabecera y del menú móvil lleva a esta sección.
+
+Si más adelante preferís recibir las solicitudes **por email**, se puede conectar el
+mismo formulario a un servicio gratuito como Formspree o Web3Forms (hace falta crear
+una cuenta con el email del taller).
+
+Las piezas 3D que decoran la sección (disco de freno con pinza verde, bujía, llave
+combinada, tornillo, tuercas, pistón con biela y engranaje) están en `engine3d.js`,
+función `initWorkshop`. Su colocación se ajusta en el objeto `LAYOUT` (`wide` para
+ordenador, `compact` para móvil).
+
 ### Engranajes 3D de la sección «Nosotros»
 
 Dos ruedas dentadas que engranan de verdad (el mismo paso de diente y velocidades en
